@@ -1,0 +1,28 @@
+	Uwagi od Pana Artura
+
+1. Nie jestem przekonany czy to dobry pomysł mieć wsp. geogr jako PK. 
+Raczej dałbym osobne ID na to, a latitude i longitude traktował 
+jako część danych tej encji.
+Przed kolejnymi labkami proszę sobie przetłumaczyć nazwy na angielski 
+- przyda się w kreatorze.
+
+	1. WeatherData (Dane meteorologiczne):
+	id (PK) – Primary Key, identyfikator wpisu.
+	location_id (FK) – Foreign Key, odniesienie do encji Location.
+	date – Data zbierania danych.
+	temperature_celsius – Temperatura w stopniach Celsjusza.
+	pressure – Ciśnienie atmosferyczne.
+	wind_speed – Prędkość wiatru.
+	precipitation – Opady.
+	2. Location (Miejscowość):
+	id (PK) – Primary Key, identyfikator miejscowości.
+	latitude – Szerokość geograficzna.
+	longitude – Długość geograficzna.
+	name – Nazwa miejscowości.
+	postal_code – Kod pocztowy.
+
+2. Sam kod proponuję przenieść z GIT ZUT na jakiś publiczny serwer, 
+gdzie będzie można się kodem podzielić (i który to kod nie zniknie 
+w dniu obronienia pracy...)
+
+	https://github.com/AleksandraBancewicz/AI2
