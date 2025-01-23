@@ -1,0 +1,5 @@
+city,country,date,celsius,fahrenheit
+{% for measurement in measurements %}
+{{ city }},{{ country }},{{ measurement.date }},{{ measurement.celsius }},{{ measurement.fahrenheit }}
+{% if not loop.last %},\n{% endif %}
+{% endfor %}

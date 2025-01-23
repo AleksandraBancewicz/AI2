@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Location Details{% endblock %}
+
+{% block body %}
+    <h1>Location Details</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ location.id }}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ location.city }}</td>
+        </tr>
+        <tr>
+            <th>Country</th>
+            <td>{{ location.country }}</td>
+        </tr>
+        <tr>
+            <th>Latitude</th>
+            <td>{{ location.latitude }}</td>
+        </tr>
+        <tr>
+            <th>Longitude</th>
+            <td>{{ location.longitude }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_location_index') }}">Back to list</a>
+    <a href="{{ path('app_location_edit', {'id': location.id}) }}">Edit</a>
+    <form method="post" action="{{ path('app_location_delete', {'id': location.id}) }}" onsubmit="return confirm('Are you sure?');">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ location.id) }}">
+        <button class="btn btn-danger">Delete</button>
+    </form>
+{% endblock %}
