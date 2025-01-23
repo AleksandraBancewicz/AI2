@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Location{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Edit Location</h1>
+        {{ form_start(form) }}
+        <div>
+            {{ form_row(form.city) }}
+        </div>
+        <div>
+            {{ form_row(form.country) }}
+        </div>
+        <div>
+            {{ form_row(form.latitude) }}
+        </div>
+        <div>
+            {{ form_row(form.longitude) }}
+        </div>
+        <button class="btn btn-primary">Update</button>
+        {{ form_end(form) }}
+        <a href="{{ path('app_location_index') }}" class="btn btn-secondary">Back to list</a>
+        {{ form_start(delete_form) }}
+        <button class="btn btn-danger">Delete</button>
+        {{ form_end(delete_form) }}
+    </main>
+{% endblock %}

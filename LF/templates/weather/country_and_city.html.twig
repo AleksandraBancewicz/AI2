@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Weather for {{ city }}, {{ country }}{% endblock %}
+
+{% block body %}
+    <h1>Weather for {{ city }}, {{ country }}</h1>
+    {% if location %}
+        <p>Location found: {{ location.city }}, {{ location.country }}</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temperature (°C)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for measurement in measurements %}
+                <tr>
+                    <td>{{ measurement.date|date('Y-m-d H:i') }}</td>
+                    <td>{{ measurement.celsius }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">No weather data available for this location.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No location found for the specified city and country.</p>
+    {% endif %}
+{% endblock %}
