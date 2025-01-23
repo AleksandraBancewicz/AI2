@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Location Index{% endblock %}
+
+{% block body %}
+    <h1>Locations</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+            <tr>
+                <td>{{ location.id }}</td>
+                <td>{{ location.city }}</td>
+                <td>{{ location.country }}</td>
+                <td>{{ location.latitude }}</td>
+                <td>{{ location.longitude }}</td>
+                <td>
+                    <a href="{{ path('app_location_show', {'id': location.id}) }}">show</a>
+                    <a href="{{ path('app_location_edit', {'id': location.id}) }}">edit</a>
+                    <a href="{{ path('app_measurement_new', {'id': location.id}) }}" class="text-primary text-decoration-underline">Add Measurement</a> <!-- Zmieniony styl linku -->
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_location_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

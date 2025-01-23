@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Measurement Details{% endblock %}
+
+{% block body %}
+    <h1>Measurement Details</h1>
+
+    <p>Date: {{ measurement.date|date('Y-m-d') }}</p>
+    <p>Temperature: {{ measurement.celsius }} °C</p>
+    <p>Location: {{ measurement.location.city }}</p>
+
+    <a href="{{ path('app_measurement_edit', {'id': measurement.id}) }}" class="btn btn-primary">Edit</a>
+    <form method="post" action="{{ path('app_measurement_delete', {'id': measurement.id}) }}" style="display:inline;">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ measurement.id) }}">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    <a href="{{ path('app_measurement_index') }}" class="btn btn-secondary">Back to Measurements</a>
+{% endblock %}
